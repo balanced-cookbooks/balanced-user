@@ -24,9 +24,21 @@ esac
 
 export VIRTUALENV_USE_DISTRIBUTE=true
 export WORKON_HOME=$HOME/.virtualenvs
-export VIRTUALENVWRAPPER_PYTHON=/usr/local/bin/python2.7
+export VIRTUALENVWRAPPER_PYTHON=`which python2.7`
 source /usr/local/bin/virtualenvwrapper.sh
 
 alias ls='ls --color=auto'
 alias ll='ls -ltra'
 alias quit='exit'
+
+
+# TODO: better way to configure the apps
+# currently want better way to set app env variable
+# in confidence it is apparently being set by supervisord2
+
+if [ -d ~/.bashrc.d ]; then
+  for f in ~/.bashrc.d/*; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
+fi

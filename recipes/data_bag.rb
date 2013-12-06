@@ -27,6 +27,11 @@ Array(users_array).each do |i|
   end
   balanced_user_bashrc username
   balanced_user_sudoer username if u['sudoer']
+
+  directory "/home/#{username}/.bashrc.d" do
+    owner username
+  end
+
 end
 
 # Deploy user
@@ -41,3 +46,7 @@ user_account "deploy" do
 end
 balanced_user_bashrc "deploy"
 balanced_user_sudoer "deploy" if u['sudoer']
+
+directory "/home/deploy/.bashrc.d" do
+  owner 'deploy'
+end
