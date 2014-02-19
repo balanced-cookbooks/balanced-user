@@ -45,7 +45,7 @@ class Chef
     include Poise
 
     def action_create
-      converge_by("create user") do
+      converge_by("create user #{new_resource.username}") do
         notifying_block do
           create_user
           if new_resource.sudo
