@@ -16,11 +16,7 @@
 # limitations under the License.
 #
 
-source 'https://berks.vandelay.io/'
-
-metadata
-
-group :test do
-  cookbook 'apt'
-  cookbook 'balanced-user_test', path: 'test/cookbooks/balanced-user_test'
+# http://i.imgur.com/4Re2QQh.jpg
+balanced_user 'coderanger' do
+  action :remove
 end

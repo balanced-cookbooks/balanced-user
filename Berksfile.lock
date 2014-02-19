@@ -1,11 +1,15 @@
 {
   "dependencies": {
     "balanced-user": {
-      "locked_version": "1.0.0",
+      "locked_version": "0.1.4",
       "path": "."
     },
     "apt": {
       "locked_version": "2.3.8"
+    },
+    "balanced-user_test": {
+      "locked_version": "0.0.0",
+      "path": "./test/cookbooks/balanced-user_test"
     },
     "poise": {
       "locked_version": "1.0.4"

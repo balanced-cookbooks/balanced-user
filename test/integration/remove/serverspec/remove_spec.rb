@@ -16,11 +16,14 @@
 # limitations under the License.
 #
 
-source 'https://berks.vandelay.io/'
+require 'serverspec'
+include Serverspec::Helper::Exec
+include Serverspec::Helper::DetectOS
 
-metadata
+describe user('coderanger') do
+  it { should_not exist }
+end
 
-group :test do
-  cookbook 'apt'
-  cookbook 'balanced-user_test', path: 'test/cookbooks/balanced-user_test'
+describe user('mahmoud') do
+  it { should exist }
 end

@@ -16,11 +16,6 @@
 # limitations under the License.
 #
 
-source 'https://berks.vandelay.io/'
+name 'balanced-user_test'
 
-metadata
-
-group :test do
-  cookbook 'apt'
-  cookbook 'balanced-user_test', path: 'test/cookbooks/balanced-user_test'
-end
+depends 'balanced-user'

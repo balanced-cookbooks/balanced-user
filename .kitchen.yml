@@ -1,0 +1,24 @@
+---
+driver:
+  name: vagrant
+
+provisioner:
+  name: chef_solo
+  attributes:
+    citadel:
+      access_key_id: <%= ENV['BALANCED_AWS_ACCESS_KEY_ID'] || ENV['AWS_ACCESS_KEY_ID'] %>
+      secret_access_key: <%= ENV['BALANCED_AWS_SECRET_ACCESS_KEY'] || ENV['AWS_SECRET_ACCESS_KEY'] %>
+
+platforms:
+  - name: ubuntu-12.04
+    run_list:
+    - recipe[apt]
+
+suites:
+- name: default
+  run_list:
+  - recipe[balanced-user]
+- name: remove
+  run_list:
+  - recipe[balanced-user]
+  - recipe[balanced-user_test::remove]
