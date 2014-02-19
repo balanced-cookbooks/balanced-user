@@ -1,0 +1,46 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# User specific aliases and functions
+
+# for use in the prompt later
+git_branch () {
+    git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/(\1)/'
+}
+
+# set a fancy prompt (non-color, unless we know we "want" color)
+case "$TERM" in
+    xterm-color)
+        PS1='[\[\033[01;32m\]\u@\h\[\033[00m\]:\[\033[01;34m\]\w\[\033[00m\]]$(git_branch)\$ '
+        ;;
+    *)
+        PS1='[\u@\h:\w]$(git_branch)\$ '
+        ;;
+esac
+
+if [ -f /usr/local/bin/virtualenvwrapper.sh ]; then
+  export VIRTUALENV_USE_DISTRIBUTE=true
+  export WORKON_HOME=$HOME/.virtualenvs
+  export VIRTUALENVWRAPPER_PYTHON=`which python2.7`
+  source /usr/local/bin/virtualenvwrapper.sh
+fi
+
+alias ls='ls --color=auto'
+alias ll='ls -ltra'
+alias quit='exit'
+
+
+# TODO: better way to configure the apps
+# currently want better way to set app env variable
+# in confidence it is apparently being set by supervisord2
+
+if [ -d ~/.bashrc.d ]; then
+  for f in ~/.bashrc.d/*; do
+    [ -x "$f" ] && . "$f"
+  done
+  unset f
+fi

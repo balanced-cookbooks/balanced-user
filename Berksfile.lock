@@ -1,0 +1,26 @@
+{
+  "dependencies": {
+    "balanced-user": {
+      "locked_version": "1.0.0",
+      "path": "."
+    },
+    "apt": {
+      "locked_version": "2.3.8"
+    },
+    "poise": {
+      "locked_version": "1.0.4"
+    },
+    "sudo": {
+      "locked_version": "2.5.0"
+    },
+    "user": {
+      "locked_version": "0.3.0"
+    },
+    "balanced-citadel": {
+      "locked_version": "1.0.0"
+    },
+    "citadel": {
+      "locked_version": "1.0.0"
+    }
+  }
+}
