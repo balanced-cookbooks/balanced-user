@@ -16,6 +16,12 @@ balanced_user 'asmithee' do
 end
 ```
 
+Custom dotfiles
+---------------
+
+To add per-user dotfiles copy the file to `templates/default/<username>/<filename>`
+and add `dotfiles %w{filename}` to your `balanced_user` resource in `recipes/default.rb`.
+
 Resources
 ---------
 
