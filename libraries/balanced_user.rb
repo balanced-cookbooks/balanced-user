@@ -55,6 +55,15 @@ class Chef
       end
     end
 
+    def action_remove
+      converge_by("remove user #{new_resource.username}") do
+        notifying_block do
+          revoke_sudo
+          remove_user
+        end
+      end
+    end
+
     private
 
     def create_user
@@ -86,6 +95,18 @@ class Chef
         group new_resource.username
         mode '755'
       end
+    end
+
+    def revoke_sudo
+      r = grant_sudo
+      r.action(:remove)
+      r
+    end
+
+    def remove_user
+      r = create_user
+      r.action(:remove)
+      r
     end
   end
 end
