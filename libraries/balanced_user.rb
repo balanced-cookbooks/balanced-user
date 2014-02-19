@@ -48,7 +48,11 @@ class Chef
       converge_by("create user") do
         notifying_block do
           create_user
-          grant_sudo if new_resource.sudo
+          if new_resource.sudo
+            grant_sudo
+          else
+            revoke_sudo
+          end
           create_bashrc
           create_bashrc_d
         end
