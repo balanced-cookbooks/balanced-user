@@ -16,16 +16,7 @@
 # limitations under the License.
 #
 
-name 'balanced-user'
-version '0.1.4'
-
-maintainer 'Noah Kantrowitz'
-maintainer_email 'noah@coderanger.net'
-license 'Apache 2.0'
-description 'Create system users for Balanced'
-long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
-
-depends 'balanced-citadel', '~> 1.0'
-depends 'poise', '~> 1.0'
-depends 'sudo', '~> 2.5'
-depends 'user', '~> 0.3'
+# http://i.imgur.com/4Re2QQh.jpg
+balanced_user 'coderanger' do
+  action :remove
+end

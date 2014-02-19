@@ -1,7 +1,7 @@
 #
 # Author:: Noah Kantrowitz <noah@coderanger.net>
 #
-# Copyright 2014, Noah Kantrowitz
+# Copyright 2014, Balanced, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -25,6 +25,7 @@ class Chef
     attribute(:sudo, equal_to: [true, false], default: false)
     attribute(:ssh_keys, kind_of: [Array, String], default: [])
     attribute(:github_username, kind_of: [String, FalseClass], default: lazy { username })
+    attribute(:dotfiles, kind_of: Array, default: [])
 
     # Massage all SSH keys
     def _ssh_keys
@@ -45,12 +46,26 @@ class Chef
     include Poise
 
     def action_create
-      converge_by("create user") do
+      converge_by("create user #{new_resource.username}") do
         notifying_block do
           create_user
-          grant_sudo if new_resource.sudo
-          create_bashrc
+          if new_resource.sudo
+            grant_sudo
+          else
+            revoke_sudo
+          end
+          create_bashrc unless new_resource.dotfiles.include?('.bashrc')
           create_bashrc_d
+          create_dotfiles
+        end
+      end
+    end
+
+    def action_remove
+      converge_by("remove user #{new_resource.username}") do
+        notifying_block do
+          revoke_sudo
+          remove_user
         end
       end
     end
@@ -86,6 +101,42 @@ class Chef
         group new_resource.username
         mode '755'
       end
+    end
+
+    def create_dotfiles
+      new_resource.dotfiles.each do |dotfile|
+        parts = dotfile.split('/')
+        last_part = parts.pop
+        path = "/home/#{new_resource.username}/"
+        parts.each do |part|
+          path << part
+          path << '/'
+          directory path do
+            owner new_resource.username
+            group new_resource.username
+            mode '755'
+          end
+        end
+        path << last_part
+        template path do
+          source "#{new_resource.username}/#{dotfile}"
+          owner new_resource.username
+          group new_resource.username
+          mode '644'
+        end
+      end
+    end
+
+    def revoke_sudo
+      r = grant_sudo
+      r.action(:remove)
+      r
+    end
+
+    def remove_user
+      r = create_user
+      r.action(:remove)
+      r
     end
   end
 end

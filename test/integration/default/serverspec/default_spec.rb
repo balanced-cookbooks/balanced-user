@@ -1,7 +1,7 @@
 #
 # Author:: Noah Kantrowitz <noah@coderanger.net>
 #
-# Copyright 2014, Noah Kantrowitz
+# Copyright 2014, Balanced, Inc.
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -34,6 +34,10 @@ end
 
 describe file('/home/mahmoud/.ssh/authorized_keys') do
   its(:content) { should include('ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA4UgOn3ef6LUMrgTTmhXWMxnMZ') }
+end
+
+describe file('/home/marshall/.tmux.conf') do
+  it { should be_a_file }
 end
 
 describe user('deploy') do
