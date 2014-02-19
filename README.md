@@ -1,4 +1,4 @@
-balanced-user2
+balanced-user
 =============
 
 [![Build Status](https://travis-ci.org/balanced-cookbooks/balanced-user.png?branch=master)](https://travis-ci.org/balanced-cookbooks/balanced-user)
