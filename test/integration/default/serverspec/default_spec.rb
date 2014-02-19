@@ -36,6 +36,10 @@ describe file('/home/mahmoud/.ssh/authorized_keys') do
   its(:content) { should include('ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA4UgOn3ef6LUMrgTTmhXWMxnMZ') }
 end
 
+describe file('/home/marshall/.tmux.conf') do
+  it { should be_a_file }
+end
+
 describe user('deploy') do
   it { should exist }
 end

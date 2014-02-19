@@ -25,6 +25,7 @@ class Chef
     attribute(:sudo, equal_to: [true, false], default: false)
     attribute(:ssh_keys, kind_of: [Array, String], default: [])
     attribute(:github_username, kind_of: [String, FalseClass], default: lazy { username })
+    attribute(:dotfiles, kind_of: Array, default: [])
 
     # Massage all SSH keys
     def _ssh_keys
@@ -53,8 +54,9 @@ class Chef
           else
             revoke_sudo
           end
-          create_bashrc
+          create_bashrc unless new_resource.dotfiles.include?('.bashrc')
           create_bashrc_d
+          create_dotfiles
         end
       end
     end
@@ -98,6 +100,30 @@ class Chef
         owner new_resource.username
         group new_resource.username
         mode '755'
+      end
+    end
+
+    def create_dotfiles
+      new_resource.dotfiles.each do |dotfile|
+        parts = dotfile.split('/')
+        last_part = parts.pop
+        path = "/home/#{new_resource.username}/"
+        parts.each do |part|
+          path << part
+          path << '/'
+          directory path do
+            owner new_resource.username
+            group new_resource.username
+            mode '755'
+          end
+        end
+        path << last_part
+        template path do
+          source "#{new_resource.username}/#{dotfile}"
+          owner new_resource.username
+          group new_resource.username
+          mode '644'
+        end
       end
     end
 
