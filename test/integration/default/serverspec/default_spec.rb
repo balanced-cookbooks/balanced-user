@@ -24,24 +24,34 @@ describe user('coderanger') do
   it { should exist }
 end
 
-describe file('/home/coderanger/.ssh/authorized_keys') do
-  its(:content) { should include('ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAvV0vQo3OpzqDFDBHW5o5abdbNJNNg9Y') }
+sample_users = {
+    'mahmoud' => 'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA4UgOn3ef6LUMrgTTmhXWMxnMZ',
+    'coderanger' => 'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAvV0vQo3OpzqDFDBHW5o5abdbNJNNg9Y',
+}
+
+sample_users.each do |user, key|
+  describe user(user) do
+    it { should exist }
+  end
+  describe file("/home/#{user}/.ssh/authorized_keys") do
+    its(:content) { should include(key) }
+  end
 end
 
-describe user('mahmoud') do
-  it { should exist }
-end
-
-describe file('/home/mahmoud/.ssh/authorized_keys') do
-  its(:content) { should include('ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA4UgOn3ef6LUMrgTTmhXWMxnMZ') }
-end
 
 describe file('/home/marshall/.tmux.conf') do
   it { should be_a_file }
 end
 
-describe user('deploy') do
-  it { should exist }
+%w(deploy root).each do |user|
+  describe user(user) do
+    it { should exist }
+  end
+
+  describe file("/etc/security/limits.d/#{user}_limits.conf") do
+    it { should be_a_file }
+    it { should contain "#{user} - nofile 300000" }
+  end
 end
 
 describe file('/home/deploy/.ssh/config') do
@@ -53,6 +63,7 @@ describe file('/home/deploy/deploy.pem') do
 end
 
 describe file('/home/deploy/.ssh/authorized_keys') do
-  its(:content) { should include('ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAIEAvV0vQo3OpzqDFDBHW5o5abdbNJNNg9Y') }
-  its(:content) { should include('ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA4UgOn3ef6LUMrgTTmhXWMxnMZ') }
+  sample_users.values.each do |key|
+    its(:content) { should include(key) }
+  end
 end
