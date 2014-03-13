@@ -17,7 +17,7 @@
 #
 
 name 'balanced-user'
-version '0.1.4'
+version '1.0.0'
 
 maintainer 'Noah Kantrowitz'
 maintainer_email 'noah@coderanger.net'
@@ -29,3 +29,4 @@ depends 'balanced-citadel', '~> 1.0'
 depends 'poise', '~> 1.0'
 depends 'sudo', '~> 2.5'
 depends 'user', '~> 0.3'
+depends 'ulimit', '~> 0.3'

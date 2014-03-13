@@ -83,3 +83,9 @@ balanced_user 'victorlin' do
 end
 
 balanced_deploy_user 'deploy'
+
+%w(root deploy).each do |u|
+  user_ulimit u do
+    filehandle_limit 300000 # optional
+  end
+end
