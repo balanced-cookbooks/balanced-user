@@ -20,8 +20,10 @@ require 'serverspec'
 include Serverspec::Helper::Exec
 include Serverspec::Helper::DetectOS
 
-describe user('coderanger') do
-  it { should exist }
+%w(deploy root coderanger).each do |user|
+  describe user(user) do
+    it { should exist }
+  end
 end
 
 sample_users = {
@@ -38,21 +40,14 @@ sample_users.each do |user, key|
   end
 end
 
-
+# dotfiles
 describe file('/home/marshall/.tmux.conf') do
   it { should be_a_file }
 end
 
-%w(deploy root).each do |user|
-  describe user(user) do
-    it { should exist }
-  end
-
-  describe file("/etc/security/limits.d/#{user}_limits.conf") do
-    it { should be_a_file }
-    it { should contain "#{user} soft nofile 300000" }
-    it { should contain "#{user} hard nofile 300000" }
-  end
+# file limits
+describe file('/etc/security/limits.d/default.conf') do
+  it { should be_a_file }
 end
 
 describe file('/home/deploy/.ssh/config') do

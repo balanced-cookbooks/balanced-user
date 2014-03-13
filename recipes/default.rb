@@ -84,9 +84,6 @@ end
 
 balanced_deploy_user 'deploy'
 
-%w(root deploy).each do |u|
-  user_ulimit u do
-    filehandle_soft_limit 300000
-    filehandle_hard_limit 300000
-  end
+file "/etc/security/limits.d/default.conf" do
+
 end
