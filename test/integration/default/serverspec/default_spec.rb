@@ -50,7 +50,8 @@ end
 
   describe file("/etc/security/limits.d/#{user}_limits.conf") do
     it { should be_a_file }
-    it { should contain "#{user} - nofile 300000" }
+    it { should contain "#{user} soft nofile 300000" }
+    it { should contain "#{user} hard nofile 300000" }
   end
 end
 

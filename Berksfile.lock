@@ -1,7 +1,7 @@
 {
   "dependencies": {
     "balanced-user": {
-      "locked_version": "1.0.0",
+      "locked_version": "1.0.1",
       "path": "."
     },
     "apt": {
