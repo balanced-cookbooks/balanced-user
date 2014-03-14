@@ -46,8 +46,11 @@ describe file('/home/marshall/.tmux.conf') do
 end
 
 # file limits
+
 describe file('/etc/security/limits.d/default.conf') do
   it { should be_a_file }
+  it { should contain '*               soft    nofile         30000' }
+  it { should contain '*               hard    nofile         30000' }
 end
 
 describe file('/home/deploy/.ssh/config') do

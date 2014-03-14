@@ -84,6 +84,6 @@ end
 
 balanced_deploy_user 'deploy'
 
-file "/etc/security/limits.d/default.conf" do
-
+cookbook_file '/etc/security/limits.d/default.conf' do
+  source 'etc/security/limits.d/default.conf'
 end
