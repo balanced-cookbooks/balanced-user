@@ -24,7 +24,7 @@ class Chef
     attribute(:username, name_attribute: true)
     attribute(:sudo, equal_to: [true, false], default: false)
     attribute(:ssh_keys, kind_of: [Array, String], default: [])
-    attribute(:github_username, kind_of: [String, FalseClass], default: lazy { username })
+    attribute(:github_username, kind_of: [String, FalseClass], default: false)
     attribute(:dotfiles, kind_of: Array, default: [])
 
     # Massage all SSH keys

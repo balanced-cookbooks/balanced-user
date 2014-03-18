@@ -13,6 +13,7 @@ usernames are the same, you can just do:
 ```ruby
 balanced_user 'asmithee' do
   sudo true
+  github_username 'asmithee'
 end
 ```
 
@@ -38,7 +39,7 @@ end
 ```
 
 * `sudo` – Does this user have sudo access. *(default: false)*
-* `github_username` – Github username to query for SSH keys. Set to `false` to disable. *(default: username)*
+* `github_username` – Github username to query for SSH keys. Set to your github username to enable. *(default: false)* (disabled)
 * `ssh_keys` – List of SSH keys to use in addition to auto-discovered keys. *(default: [])*
 
 ### balanced_deploy_user
