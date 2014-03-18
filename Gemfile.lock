@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/berkshelf/berkshelf.git
-  revision: eb7fc61e861e9830374c45bcafdc0ae07b54117b
+  revision: ee9ddd9042e1dcbe854973c6b03e7d720617d548
   specs:
-    berkshelf (3.0.0.beta6)
+    berkshelf (3.0.0.beta7)
       addressable (~> 2.3.4)
       berkshelf-api-client (~> 1.1)
       buff-config (~> 0.2)
@@ -18,10 +18,10 @@ GIT
 
 GIT
   remote: git://github.com/berkshelf/vagrant-berkshelf.git
-  revision: 8fca7b2f00899d5c51ffd88fc19cbbcd92479e94
+  revision: 876d1cf48a6062174364dc78358bf8a7e3525702
   specs:
     vagrant-berkshelf (1.4.0.dev1)
-      berkshelf (>= 3.0.0.beta3)
+      berkshelf (>= 3.0.0.beta7)
 
 GIT
   remote: git://github.com/mitchellh/vagrant.git
@@ -35,23 +35,6 @@ GIT
       log4r (~> 1.1.9)
       net-scp (~> 1.1.0)
       net-ssh (>= 2.6.6, < 2.8.0)
-
-GIT
-  remote: git://github.com/schisamo/vagrant-omnibus.git
-  revision: 82d4c11ee4182cf273e583f35105bc7207ab03e1
-  specs:
-    vagrant-omnibus (1.2.1)
-
-GIT
-  remote: git://github.com/test-kitchen/test-kitchen.git
-  revision: a04a864f4d4998204cdab855bd5a4ef15fc889ba
-  specs:
-    test-kitchen (1.2.2.dev)
-      mixlib-shellout (~> 1.2)
-      net-scp (~> 1.1)
-      net-ssh (~> 2.7)
-      safe_yaml (~> 1.0)
-      thor (~> 0.18)
 
 GEM
   remote: https://rubygems.org/
@@ -73,7 +56,7 @@ GEM
     celluloid-io (0.15.0)
       celluloid (>= 0.15.0)
       nio4r (>= 0.5.0)
-    chef (11.10.2)
+    chef (11.10.4)
       chef-zero (~> 1.7, >= 1.7.2)
       diff-lcs (~> 1.2, >= 1.2.4)
       erubis (~> 2.7)
@@ -103,19 +86,27 @@ GEM
     coderay (1.1.0)
     diff-lcs (1.2.5)
     erubis (2.7.0)
-    excon (0.31.0)
+    excon (0.32.1)
     faraday (0.8.9)
       multipart-post (~> 1.2.0)
     ffi (1.9.3)
-    fog (1.20.0)
+    fog (1.21.0)
+      fog-brightbox
+      fog-core (~> 1.21, >= 1.21.1)
+      fog-json
+      nokogiri (~> 1.5, >= 1.5.11)
+    fog-brightbox (0.0.1)
+      fog-core
+      fog-json
+    fog-core (1.21.1)
       builder
-      excon (~> 0.31.0)
+      excon (~> 0.32)
       formatador (~> 0.2.0)
       mime-types
-      multi_json (~> 1.0)
       net-scp (~> 1.1)
       net-ssh (>= 2.1.3)
-      nokogiri (>= 1.5.11)
+    fog-json (1.0.0)
+      multi_json (~> 1.0)
     foodcritic (3.0.3)
       erubis
       gherkin (~> 2.11.7)
@@ -127,7 +118,7 @@ GEM
     gherkin (2.11.8)
       multi_json (~> 1.3)
     hashie (2.0.5)
-    highline (1.6.20)
+    highline (1.6.21)
     i18n (0.6.9)
     ipaddress (0.8.0)
     json (1.8.1)
@@ -147,7 +138,7 @@ GEM
     mixlib-log (1.6.0)
     mixlib-shellout (1.3.0)
     moneta (0.6.0)
-    multi_json (1.8.4)
+    multi_json (1.9.0)
     multipart-post (1.2.0)
     net-http-persistent (2.9.4)
     net-scp (1.1.2)
@@ -160,7 +151,7 @@ GEM
       net-ssh-gateway (>= 1.2.0)
     nio4r (1.0.0)
     nokogiri (1.5.11)
-    octokit (2.7.1)
+    octokit (2.7.2)
       sawyer (~> 0.5.2)
     ohai (6.20.0)
       ipaddress
@@ -203,9 +194,15 @@ GEM
     sawyer (0.5.3)
       addressable (~> 2.3.5)
       faraday (~> 0.8, < 0.10)
-    slop (3.4.7)
+    slop (3.5.0)
     solve (0.8.2)
     systemu (2.5.2)
+    test-kitchen (1.2.1)
+      mixlib-shellout (~> 1.2)
+      net-scp (~> 1.1)
+      net-ssh (~> 2.7)
+      safe_yaml (~> 1.0)
+      thor (~> 0.18)
     thor (0.18.1)
     timers (1.1.0)
     treetop (1.4.15)
@@ -214,6 +211,7 @@ GEM
     unf (0.1.3)
       unf_ext
     unf_ext (0.0.6)
+    vagrant-omnibus (1.3.1)
     vagrant-wrapper (1.2.1.1)
     varia_model (0.3.2)
       buff-extensions (~> 0.2)
@@ -229,9 +227,9 @@ DEPENDENCIES
   foodcritic (>= 3.0.3)
   kitchen-ec2
   kitchen-vagrant
-  test-kitchen!
+  test-kitchen
   unf
   vagrant!
   vagrant-berkshelf!
-  vagrant-omnibus!
+  vagrant-omnibus
   vagrant-wrapper
