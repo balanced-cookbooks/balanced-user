@@ -1,33 +1,24 @@
-{
-  "dependencies": {
-    "balanced-user": {
-      "locked_version": "1.0.4",
-      "path": "."
-    },
-    "apt": {
-      "locked_version": "2.3.8"
-    },
-    "balanced-user_test": {
-      "locked_version": "0.0.0",
-      "path": "./test/cookbooks/balanced-user_test"
-    },
-    "poise": {
-      "locked_version": "1.0.4"
-    },
-    "sudo": {
-      "locked_version": "2.5.0"
-    },
-    "user": {
-      "locked_version": "0.3.0"
-    },
-    "balanced-citadel": {
-      "locked_version": "1.0.0"
-    },
-    "citadel": {
-      "locked_version": "1.0.0"
-    },
-    "ulimit": {
-      "locked_version": "0.3.2"
-    }
-  }
-}
+DEPENDENCIES
+  apt
+  balanced-user
+    path: .
+  balanced-user_test
+    path: ./test/cookbooks/balanced-user_test
+
+GRAPH
+  apt (2.3.8)
+  balanced-citadel (1.0.2)
+    citadel (>= 0.0.0)
+  balanced-user (1.0.6)
+    balanced-citadel (~> 1.0)
+    poise (~> 1.0)
+    sudo (~> 2.5)
+    ulimit (~> 0.3)
+    user (~> 0.3)
+  balanced-user_test (0.0.0)
+    balanced-user (>= 0.0.0)
+  citadel (1.0.2)
+  poise (1.0.10)
+  sudo (2.5.2)
+  ulimit (0.3.2)
+  user (0.3.0)
