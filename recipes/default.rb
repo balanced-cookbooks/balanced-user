@@ -33,6 +33,7 @@ end
 
 balanced_user 'coderanger' do
   sudo true
+  github_username 'coderanger'
 end
 
 balanced_user 'mahmoud' do
