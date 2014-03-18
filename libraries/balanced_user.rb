@@ -33,7 +33,10 @@ class Chef
       if github_username
         github_keys = begin
           Chef::HTTP.new('https://github.com').get("#{github_username}.keys")
-        rescue Net::HTTPServerException
+        # Use a really big hammer, github being down shouldn't break things.
+        # The downside is that if github is down, it will yank your key, possibly
+        # leaving login unavailable. Not sure what to do about this right now.
+        rescue Exception
           ''
         end
         keys += github_keys.split("\n")
