@@ -18,6 +18,7 @@
 
 balanced_user 'andrew' do
   sudo true
+  github_username 'bninja'
   ssh_keys [
     'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQClYhtXQPxx7FBOer6b9RDuXu3lKbUVs5HMJKXNbXKjQKkMeq7xHGRN0/jX0wu7ZRX6NmAjykqd4xUq6b4SXO8voL4jltbGkbqUD59WNipjlZ5ZF6TSda1cDREcqGdGMGuK6/IQujwOE45xX8WFzvSE5Xx1RI9LeGuWT9a1BC8ivhwtQNBA9mNzVDcWql8tq9LDh/xRsrqls/ul+XT5Ti0EviTdycCi3DSo2aPKYnwYm8vE5gP/lRlxSpDYP4y7WuE88PL4rCOY+3D1zBVPfRqKz+DVAyXXsoVJ1pLKBVKeiAhr3COWSkZIVr4/3IcHRzePyHDbMTUZfEZxKVh8Vnmb ai@ai-xg41',
     'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDXg6ZXth790ljL7nnRsLvdpXz1RnSCTmABrIjQoxnEFo96PkbFcAScXn12cHq6jqslNG9yLr4QXC3zbQcyuDds110CxJHTw6g0e3tjynj3FT1cfBzohrosX0SNvrVTz2g2G1V35cGhzgUCvGpYyrqCwpjA6auGbSGPcmvZXRbeqY8hjyPDKcy6RfynTZtNWNG5nqhe91qBP2oj1FGnvZIpt+pfmyZZttxC2qzuPOenP7Ahw+RLPhEuBz79dm3CaQv4iSRwFxyfpClx4CdO1bXXGPjlmPo+RV9LqVDes92bQYZ0Pv0ZJGXCjL4vXBK1QA1vzMJs2MqfjqBnrcaVBpN7 ai@ai-gazelle',
@@ -38,6 +39,7 @@ end
 
 balanced_user 'mahmoud' do
   sudo true
+  github_username 'mahmoudimus'
   ssh_keys [
     'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEA4UgOn3ef6LUMrgTTmhXWMxnMZMW+ifSRj8ORTAEYXyRpEzPdAHA0hLxokLKPJPZL1XYzqmq7p6ytEjOtRUmCrKtfZug9G365glhMCp2JAbfz7XNkeqda7tVx3XYWV1inLGqKhoW15WIh+N2+hbWhrBhr8KakuL03d3ZEu/naRgsU89oiuHb+U1iOwrLZPtbyPJWKclkIZ+yVsiWJyGrSAYsayi+fTv81n7YgvnBb3lq5XUVNfoPZ44On5QM7BvoV3QgqaGKI/hLbqAdwXZly4qzcGVaiHiee5XFWI9K/QlGoiOEOCcpTj0yJ5j2AYcBm9ZLd+0G3O0P5bM4/1FadHw== mahmoud@gauss',
   ]
