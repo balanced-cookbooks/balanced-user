@@ -2,6 +2,7 @@ DEPENDENCIES
   apt
   balanced-user
     path: .
+    metadata: true
   balanced-user_test
     path: ./test/cookbooks/balanced-user_test
 
@@ -9,7 +10,7 @@ GRAPH
   apt (2.3.8)
   balanced-citadel (1.0.2)
     citadel (>= 0.0.0)
-  balanced-user (1.0.6)
+  balanced-user (1.0.8)
     balanced-citadel (~> 1.0)
     poise (~> 1.0)
     sudo (~> 2.5)
