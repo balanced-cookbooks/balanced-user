@@ -49,6 +49,11 @@ balanced_user 'marshall' do
   sudo true
   github_username 'mjallday'
   dotfiles %w{.tmux.conf}
+  ssh_keys [
+               "ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAz1wTM+zhEP001ShrcbhPNQnO7hrBt7bGWhmU+s/K5QsLRSTYErjU75msUVtoWxe3oPjwp6q/Toc2KDcZgzm3guNZYSWdskUwSIZD47rjwmyzsYLlXPZzwtDJQqV813XZR/R3I73fUSKykfDb3vG5j8wr7d0lGvePoKPZEdL1N0F5ogsT1NEUZCSYpSo3M3AHH5Uu8p1hBAQFsgsXXQGh2I27j7z+DgNDVHd0nLb85YSmtlYzujnlWbn1+4j0SUxfodWi2bvDVpAWljgk3H7kiL7kAQgDgTFXE/Ydw88xPgHSx/pF6agb7Wf7xvJG9TX07oMIfdOfH6rLSBgCDGvuRQ== Marsh@MJ-2.local",
+               "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCxEOvSm7Vi+sCN5FAaftfBIq3nwUOn53P/Rg9+NU6OEdFlUqY/u44P/fCCSv6aQ6wFximmhevMbW9Jeo24Zra0obNELKTyq5/VqV5behykfBv0QAGKJaPNEacHHtVJDtgUbGw2S5YRfZ6gzMpDy8+3fsMfpeWQuGVvYPYwZA3i8AyIOAr02PJO+L1CBlohYM2zrd0S4OiYCkJXZzcNJy9kuxrEeYHpzABBjgkXwjps/CY2rS/DGtrx4q6jxsRf3Ep1yXcD0M96p/8NpplUeaDaZ+sDT79seCbQz7zC0flruSNE7LQ2/WkKnMXBXl/Q27ns5hDCK6Cs5zURT+k/5gl9 marshall@Joys-MacBook-Air.local",
+               "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDi/Am4kcOWa9W7Mm9tdjn4/yw59A1IwcKu5yu7woCt99H5ti5PzjzTsi6WIuxWxG5fDT+eHPUTAQ7X9ZfEos5F984H54WTNQnJwiA8iczoqJ2qTKCCsFTo3VufdEsn02C3wchXl1MySMTCRoQ9GicGh9BNZ/n4NHQKTBN7538XTJQcerUdLU0oNKeCQkOPODn82vT/HLwzHoS08KWni06lJuMbAfyIPkcTaE26wkxp6BPJvA0mfgpq1SEzYlRhrDJbJXKIywM+7VTQ21pD7V3dOlrOciHAlMfZ+CR7+FO7zxaAL1MmFeKLqiZl5tHS3lOye5+Q7OHbiRqDev3KKIpP marshall@28-cf-e9-60-3d-cf.local.tld"
+           ]
 end
 
 balanced_user 'matthew' do
