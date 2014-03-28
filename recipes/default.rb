@@ -83,6 +83,14 @@ balanced_user 'richie' do
   ]
 end
 
+balanced_user 'carlos' do
+  sudo true
+  github_username 'cohitre'
+  ssh_keys [
+    'ssh-rsa AAAAB3NzaC1yc2EAAAABIwAAAQEAxbldqS3hdxcmDYhZXzWSIJMWLI9uq6Oy1eqCKzy12GsfKY718PVtpWk+2Cds2ZhYlez4a1/COp/4JBUUGnhTZjv7R9xn5gDmdRI/FgyCuCnH6aXybV7tNXpQ1goJjHGP5uMIefvtRoJrgU+gyaCTYYanHgc8Z/DCwu9r+hixQZGf2sNnSWOgHkBVpIN2x+EHfd2aqAWA383rWsdHMi2cP0z0whR5A8RKiqD6m8E5tpEbmSEPG8S8hFu2POCHYuuBYMr6WVKre+YPsMRJoyU9rMyAm5ZO1VnaNiQ0Bq3PuQIfe+5yLgaw+LpKaW1ViqvtyERfRtmUA4kUNVPQlaBQDQ== carlos@medusa.local'
+  ]
+end
+
 balanced_user 'victorlin' do
   sudo true
   ssh_keys [
