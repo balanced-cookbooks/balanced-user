@@ -98,6 +98,16 @@ balanced_user 'victorlin' do
   ]
 end
 
+# this is the user for running SSH commands from Rundeck
+balanced_user 'rundeck' do
+  sudo true
+  ssh_keys [
+    # the corresponding private key is at balanced-citadel/balanced_cmdr/rundeck.pem
+    'ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDB2amaQhepruS2kByF0QT57pHwm0fd/m6iS9Bp/xE70bCUu1RDJa6b/nKdZt1VPsJt2gPG+DauQNrPeVh0xRhsPPG39YniFl0eQ5sg9hSBrodPVMGDNohyWv/8VA4/zrW4AWtLhPpQnBB0Xf+vvlCwpW9K7gb1iHyG7DFBjw6QFUqy/SzuvS/GiZ1JRp32/rH/1FidqDU5ID8QK52fbM/L4rDfGUxKSc0VmMxFxenb/UmMMgPpMAyICOzhENkdndOFi2AQeYciwC+x+AONf9CiAZ/mIv5aKVCb755kP6siT+JoMv8kxo2c60XWdx2uT5oEHpzDTgktGEa9UBjBhOKR balanced-cmdr',
+  ]
+end
+
+
 balanced_deploy_user 'deploy'
 
 cookbook_file '/etc/security/limits.d/default.conf' do
