@@ -17,7 +17,7 @@
 #
 
 name 'balanced-user'
-version '1.0.12'
+version '1.0.14'
 
 maintainer 'Noah Kantrowitz'
 maintainer_email 'noah@coderanger.net'
