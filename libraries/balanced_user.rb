@@ -92,6 +92,7 @@ class Chef
     def create_bashrc
       template "/home/#{new_resource.username}/.bashrc" do
         source 'bashrc.erb'
+        cookbook 'balanced-user'
         owner new_resource.username
         group new_resource.username
         mode '644'
