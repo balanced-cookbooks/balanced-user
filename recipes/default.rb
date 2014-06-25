@@ -35,6 +35,7 @@ end
 balanced_user 'coderanger' do
   sudo true
   github_username 'coderanger'
+  action :remove
 end
 
 balanced_user 'mahmoud' do
