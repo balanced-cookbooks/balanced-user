@@ -16,6 +16,9 @@
 # limitations under the License.
 #
 
+
+require 'poise'
+
 class Chef
   class Resource::BalancedUser < Resource
     include Poise
