@@ -26,7 +26,7 @@ description 'Create system users for Balanced'
 long_description IO.read(File.join(File.dirname(__FILE__), 'README.md'))
 
 depends 'balanced-citadel', '~> 1.0'
-depends 'poise', '~> 1.0'
+depends 'poise', '~> 2'
 depends 'sudo', '~> 2.5'
 depends 'user', '~> 0.3'
 depends 'ulimit', '~> 0.3'
